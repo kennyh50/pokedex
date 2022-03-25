@@ -6,28 +6,30 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import CardMedia from '@mui/material/CardMedia';
 import Box from '@mui/material/Box'
-//import { flexbox } from '@mui/system';
+
+import { red, blue } from '@mui/material/colors';
+const swiggle = red[500];
+const lightBlue = blue[100];
+
 
 const PokeCard = ({ pokemon }) => {
+
   return (
-    <Card sx={{ maxWidth: "1000%" }}>
-      <div
-        sx={{
-          display: "flex",
-          alignItem: "center",
-          justifyContent: "center"
-        }}
-      >
+    <Card sx={{ maxWidth: "100%" }}>
+      <div>
         <CardMedia
           component="img"
           maxHeight="100px"
           width="50%"
           image={pokemon.image}
           alt=""
+          sx={{ bgcolor: lightBlue }}
         />
       </div>
 
-      <CardContent>
+      <CardContent
+        sx={{}}
+      >
         <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
           {pokemon.name}
         </Typography>

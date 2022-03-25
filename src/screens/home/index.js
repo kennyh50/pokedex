@@ -1,9 +1,8 @@
 import './Home.css';
-
 import React, { useState } from 'react'
 import PokeCard from '../../components/card'
-const axios = require('axios')
 
+const axios = require('axios')
 
 const HomeScreen = () => {
 
@@ -49,20 +48,21 @@ const HomeScreen = () => {
 
   return (
     <>
-      <div className='centerize'
-        sx={{ maxWidth: "80%" }}
-      >
-        <div
-        >
-          <h1>Beta Pokedex</h1>
-          <input
-            type="text"
-            onChange={handleChange}
-          />
-          <h2>{pokeString}</h2>
-          <button onClick={pokeSearch}>
-            Search for mon
-          </button>
+      <div className='centerize red-bg'>
+        <div >
+          <h1 className='centerize'>Beta Pokedex</h1>
+          <div className='centerize'>
+            <input
+              type="text"
+              onChange={handleChange}
+            />
+          </div>
+          <h2 className='centerize' >{pokeString}</h2>
+          <div className='centerize'>
+            <button onClick={pokeSearch}>
+              Search for mon
+            </button>
+          </div>
           <PokeCard pokemon={pokemon} />
         </div>
       </div>
