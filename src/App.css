@@ -2,3 +2,6 @@ li {
   list-style-type: none;
 }
 
+body {
+  background-color: #f44336;
+}

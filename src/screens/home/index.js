@@ -11,7 +11,8 @@ const HomeScreen = () => {
   const [pokemon, setPokemon] = useState({
     name: "",
     species: "",
-    image: "",
+    front: "",
+    front_shiny: "",
     hp: "",
     attack: "",
     defense: "",
@@ -31,10 +32,10 @@ const HomeScreen = () => {
       .then((response) => {
         console.log(response)
         setPokemon({
-          name: pokeString,
+          name: response.data.name,
           species: response.data.species,
-          image: response.data.sprites.front_shiny,
-          //imagae: response.data.sprites.other.dream_world.front_default,
+          front_shiny: response.data.sprites.front_shiny,
+          front: response.data.sprites.front_default,
           hp: response.data.stats[0].base_stat,
           attack: response.data.stats[1].base_stat,
           defense: response.data.stats[2].base_stat,

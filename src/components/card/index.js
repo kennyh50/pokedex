@@ -1,8 +1,6 @@
 import React from 'react'
 import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
-import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import CardMedia from '@mui/material/CardMedia';
 import Box from '@mui/material/Box'
@@ -11,33 +9,48 @@ import { red, blue } from '@mui/material/colors';
 const swiggle = red[500];
 const lightBlue = blue[100];
 
+function capitalizeFirst(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
 
 const PokeCard = ({ pokemon }) => {
 
   return (
-    <Card sx={{ maxWidth: "100%" }}>
+    <Card
+      sx={{
+        maxWidth: "100%",
+        border: 1,
+        mt: 2
+      }}>
       <div>
         <CardMedia
           component="img"
           maxHeight="100px"
           width="50%"
-          image={pokemon.image}
+          image={pokemon.front}
           alt=""
           sx={{ bgcolor: lightBlue }}
         />
       </div>
 
-      <CardContent
-        sx={{}}
-      >
-        <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-          {pokemon.name}
-        </Typography>
+      <CardContent>
         <Typography variant="h5" component="div">
-          {pokemon.name}
+          {capitalizeFirst(pokemon.name)}
         </Typography>
-        <Typography sx={{ mb: 1.5 }} color="text.secondary">
-          Attack: {pokemon.attack}, Defense: {pokemon.defense}
+        <Typography
+          sx={{
+            mb: 1.5,
+            display: 'flex',
+            flexDirection: 'column',
+          }}
+          color="text.secondary">
+          <div>
+            Base Attack: {pokemon.attack},
+          </div>
+          <div>
+            Base Defense: {pokemon.defense}
+          </div>
         </Typography>
         <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
           <div sx={{ display: 'flex', justifyContent: 'flex-end' }} >Name: {pokemon.moves.map((m, index) => (<li key={index}>{m.move.name} </li>))}</div>
@@ -47,9 +60,6 @@ const PokeCard = ({ pokemon }) => {
           <br />
         </Box>
       </CardContent>
-      <CardActions>
-        <Button size="small">Learn More</Button>
-      </CardActions>
     </Card>
   )
 }
